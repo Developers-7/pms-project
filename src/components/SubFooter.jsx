@@ -1,19 +1,10 @@
-/**
- * Created by WebStorm.
- * User: Zishan
- * Date: 10 Jul 2025
- * Time: 4:15 PM
- * Email: zishan.softdev@gmail.com
- */
-
-
 import React from 'react';
 import { getT } from '@/i18n/server';
 import SectionCardLayout from "@/components/SectionCard/SectionCardLayout";
-import SectionCardContainer from "@/components/SectionCard/SectionCardContainer";
 import AvatarGroup from "@/components/typography/AvatarGroup";
 import SubHeading from "@/components/typography/SubHeading";
-import Button from "@/components/ui/Button";
+import CardButton from './ui/CardButton';
+import { ArrowRightIcon } from 'lucide-react';
 
 const SubFooter = async () => {
     const t = await getT();
@@ -33,25 +24,30 @@ const SubFooter = async () => {
 
     return (
         <SectionCardLayout className="container">
-            <SectionCardContainer className="bg-primary rounded-3xl px-6 py-8">
-                <div className="max-w-6xl mx-auto space-y-6">
-                    {/* Avatars */}
-                    <AvatarGroup avatars={avatars} maxVisible={5} />
+            <div className="bg-primary rounded-3xl px-6 py-8">
+                <div className="max-w-6xl mx-auto">
+                    <div className="flex flex-col sm:flex-row items-center justify-between gap-6">
+                        {/* Left side - Avatars and SubHeading */}
+                        <div className="flex flex-col space-y-4">
+                            <AvatarGroup avatars={avatars} maxVisible={5} />
+                            <SubHeading className="text-white text-center sm:text-left">
+                                {t('subscription_pharmacy')}
+                            </SubHeading>
+                        </div>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <SubHeading className="text-white text-center sm:text-left">
-                            {t('subscription_pharmacy')}
-                        </SubHeading>
-
-                        <Button
-                            variant="ghost"
-                            className="bg-white text-primary hover:bg-gray-100"
+                        {/* Right side - Button */}
+                        <CardButton
+                            as="Button"
+                            href="/get-started"
+                            icon={<ArrowRightIcon className="w-4 h-4" />}
+                            iconPosition="right"
+                            variant="outline"
                         >
-                            {t('free_trail')}
-                        </Button>
+                            <span>{t("free_trail")}</span>
+                        </CardButton>
                     </div>
                 </div>
-            </SectionCardContainer>
+            </div>
         </SectionCardLayout>
     );
 };

@@ -3,10 +3,10 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 
 const SectionCardContainer = ({
-                                  className,
-                                  children,
-                                  space = "leftSpace", // equal, leftSpace, rightSpace
-                              }) => {
+    className,
+    children,
+    space = "leftSpace", // equal, leftSpace, rightSpace
+}) => {
     const size = {
         equal: "lg:grid-cols-[50%_50%]",
         leftSpace: "lg:grid-cols-[60%_40%]",

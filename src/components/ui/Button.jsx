@@ -28,16 +28,16 @@ import { cn } from "@/lib/utils";
  * }} props
  */
 export default function Button({
-                                   variant = 'primary',
-                                   size = 'md',
-                                   icon,
-                                   iconPosition = 'left',
-                                   children,
-                                   className = '',
-                                   as = 'button',
-                                   href,
-                                   ...props
-                               }) {
+    variant = 'primary',
+    size = 'md',
+    icon,
+    iconPosition = 'left',
+    children,
+    className = '',
+    as = 'button',
+    href,
+    ...props
+}) {
     const base =
         'cursor-pointer inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
