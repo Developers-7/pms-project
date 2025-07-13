@@ -1,5 +1,6 @@
+
 import React from 'react';
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const SectionCardLayout = ({
                                className, children,
@@ -7,7 +8,7 @@ const SectionCardLayout = ({
                            }) => {
     return (
         <div
-            className={cn("bg-gradient-to-br space-y-15 w-full px-[100px] py-[120px] gap-2.5", className)}
+            className={cn("space-y-15 w-full py-30", className)}
         >
             {children}
         </div>

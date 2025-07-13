@@ -15,7 +15,7 @@ const CardComponent = ({
                        }) => {
     return (
         <div
-            className={cn("bg-white rounded-xl shadow-sm border p-4", className)}
+            className={cn("bg-gray rounded-xl shadow-sm p-4", className)}
         >
             {children}
         </div>

@@ -8,7 +8,7 @@ const SubHeading = ({
                     }) => {
     return (
         <p
-            className={cn("font-medium text-lg text-text-color m-0", className)}
+            className={cn("font-semibold text-lg text-text-color m-0", className)}
            {...rest}>
             {children}
         </p>
