@@ -49,11 +49,11 @@ export default function Button({
     };
 
     const variants = {
-        primary: 'bg-primary text-white hover:bg-red-700 focus:ring-red-500',
-        outline: 'border border-primary text-primary hover:bg-primary focus:ring-primary hover:text-white',
-        ghost: 'bg-transparent text-primary-800 hover:bg-primary-100 focus:ring-primary',
-        icon: 'bg-primary hover:bg-primary-200 focus:ring-primary-300',
-        label: 'text-primary cursor-default',
+        primary: 'bg-[#AB323C] text-white hover:bg-[#9A2D36] focus:ring-[#AB323C]',
+        outline: 'border border-[#AB323C] text-[#AB323C] hover:bg-[#AB323C] focus:ring-[#AB323C] hover:text-white',
+        ghost: 'bg-transparent text-[#494A57] hover:bg-gray-100 focus:ring-[#AB323C]',
+        icon: 'bg-[#AB323C] hover:bg-[#9A2D36] focus:ring-[#AB323C]',
+        label: 'text-[#AB323C] cursor-default',
     };
 
     const content = (

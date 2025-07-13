@@ -109,14 +109,14 @@ export default function TestimonialCarousel() {
             <div className="flex justify-center items-center space-x-4 mt-8">
                 <button
                     onClick={prev}
-                    className="w-12 h-12 rounded-full border-2 border-red-200 flex items-center justify-center hover:bg-red-50 transition-colors group"
+                    className="w-12 h-12 rounded-full border-1 border-[#AB323C] flex items-center justify-center hover:bg-red-50 transition-colors group hover:cursor-pointer"
                 >
-                    <ChevronLeftIcon className="w-5 h-5 text-red-600 group-hover:text-red-700" />
+                    <ChevronLeftIcon className="w-5 h-5 text-[#AB323C] group-hover:text-[#AB323C]" />
                 </button>
 
                 <button
                     onClick={next}
-                    className="w-12 h-12 rounded-full bg-red-600 flex items-center justify-center hover:bg-red-700 transition-colors group"
+                    className="w-12 h-12 rounded-full bg-[#AB323C] flex items-center justify-center hover:bg-[#AB323C] transition-colors group hover:cursor-pointer text-white"
                 >
                     <ChevronRightIcon className="w-5 h-5 text-white" />
                 </button>

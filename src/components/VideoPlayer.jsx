@@ -2,6 +2,7 @@
 
 import { useState, useRef } from 'react';
 import { useT } from "@/i18n/client";
+import { Play, Pause } from 'lucide-react';
 
 export default function VideoPlayer() {
     const t = useT();
@@ -60,7 +61,7 @@ export default function VideoPlayer() {
                 {/* Custom Play/Pause Button */}
                 <button
                     onClick={togglePlayPause}
-                    className="absolute bottom-4 right-4 md:bottom-6 md:right-6 w-[110px] h-[44px] px-4 py-2.5 rounded-full flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-105"
+                    className="absolute bottom-6 right-6 md:bottom-6 md:right-6 w-[110px] h-[44px] px-4 py-2.5 rounded-full flex items-center justify-center gap-2.5 transition-all duration-300 hover:scale-105"
                     style={{
                         backdropFilter: 'blur(100px)',
                         boxShadow: `
@@ -71,17 +72,12 @@ export default function VideoPlayer() {
                         background: 'rgba(255, 255, 255, 0.2)',
                     }}
                 >
-                    {/* Play/Pause Icons */}
-                    <div className="flex items-center space-x-1">
+                    {/* Play/Pause Icons from lucide-react */}
+                    <div className="flex items-center justify-center">
                         {isPlaying ? (
-                            // Pause Icon (two bars)
-                            <>
-                                <div className="w-1 h-4 bg-gray-700 rounded"></div>
-                                <div className="w-1 h-4 bg-gray-700 rounded"></div>
-                            </>
+                            <Pause size={16} className="text-gray-700" />
                         ) : (
-                            // Play Icon (triangle)
-                            <div className="w-1 h-0 border-l-[6px] border-l-gray-700 border-t-[4px] border-t-transparent border-b-[4px] border-b-transparent ml-1"></div>
+                            <Play size={16} className="text-gray-700" />
                         )}
                     </div>
 

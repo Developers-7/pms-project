@@ -6,11 +6,11 @@ const PricingSection = () => {
             id: 'basic',
             title: 'মৌলিক',
             subtitle: 'ম্যানেজমেন্ট অভ্যাসকারীদের জন্য উপযুক্ত',
-            price: '৮২১',
+            price: '৳২৯',
             period: '/মাস',
             features: [
-                { text: 'সবাইতে ১০টি প্রপার্টি', included: true },
-                { text: 'বেসিক ডাটাবেট ব্যবস্থাপনা', included: false },
+                { text: 'সর্বোচ্চ ১০টি প্রপার্টি', included: true },
+                { text: 'বেসিক ভাড়াটে ব্যবস্থাপনা', included: false },
                 { text: 'ইমেল সহায়তা', included: false }
             ],
             buttonType: 'outline',
@@ -20,12 +20,12 @@ const PricingSection = () => {
             id: 'professional',
             title: 'পেশাদার',
             subtitle: 'ক্রমবর্ধমান ব্যবসার জন্য আদর্শ',
-            price: '৮৭৩',
+            price: '৳৭৯',
             period: '/মাস',
             features: [
                 { text: '৫০টি পর্যন্ত সম্পত্তি', included: true },
-                { text: 'উন্নত ডাটাবেট ব্যবস্থাপনা', included: true },
-                { text: 'আইভিক প্রতিবেদন', included: true },
+                { text: 'উন্নত ভাড়াটে ব্যবস্থাপনা', included: true },
+                { text: 'আর্থিক প্রতিবেদন', included: true },
                 { text: 'অগ্রাধিকার সহায়তা', included: true }
             ],
             buttonType: 'filled',
@@ -40,7 +40,7 @@ const PricingSection = () => {
             features: [
                 { text: '৫০টি পর্যন্ত সম্পত্তি', included: true },
                 { text: 'উন্নত ডাটাবেট ব্যবস্থাপনা', included: true },
-                { text: 'আইভিক প্রতিবেদন', included: true },
+                { text: 'আর্থিক প্রতিবেদন', included: true },
                 { text: 'অগ্রাধিকার সহায়তা', included: true }
             ],
             buttonType: 'outline',
@@ -79,19 +79,20 @@ const PricingSection = () => {
     );
 
     return (
-        <div className="bg-gray-50 py-16">
+        <div className="bg-gray-50 py-8 md:py-16">
             <div className="container mx-auto px-4">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-20 max-w-6xl mx-auto">
+                {/* Mobile-first approach with responsive grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {pricingPlans.map((plan) => (
                         <div
                             key={plan.id}
                             className={`
                                 relative bg-white rounded-xl shadow-lg hover:shadow-xl transition-shadow
-                                w-[397px] h-[450px] flex flex-col gap-7
-                                pt-9 pr-6 pb-9 pl-6
+                                w-full flex flex-col gap-5 md:gap-7
+                                pt-8 pb-8 px-6
                                 ${plan.badge ? 'border-2 border-[#AB323C]' : ''}
+                                mb-6 md:mb-0
                             `}
-                            style={{ maxWidth: '397px', minHeight: '500px' }}
                         >
                             {/* Popular Badge */}
                             {plan.badge && (
@@ -105,24 +106,23 @@ const PricingSection = () => {
                             {/* Header */}
                             <div className={`text-center ${plan.badge ? 'pt-4' : ''}`}>
                                 <h3
-                                    className="font-['Noto_Sans_Bengali_UI'] font-bold text-2xl leading-[150%] text-[#2D2D34] mb-2"
+                                    className="font-['Noto_Sans_Bengali_UI'] font-bold text-xl md:text-2xl leading-[150%] text-[#2D2D34] mb-2"
                                 >
                                     {plan.title}
                                 </h3>
                                 <p
-                                    className="font-['Noto_Sans_Bengali_UI'] font-normal text-base leading-[150%] text-[#494A57] mb-6"
+                                    className="font-['Noto_Sans_Bengali_UI'] font-normal text-sm md:text-base leading-[150%] text-[#494A57] mb-4 md:mb-6"
                                 >
                                     {plan.subtitle}
                                 </p>
-                                <div className="mb-6">
+                                <div className="mb-4 md:mb-6">
                                     <span
-                                        className="font-['Noto_Sans_Bengali_UI'] font-bold text-[26px] leading-[150%] text-[#2D2D34]"
-                                        style={{ letterSpacing: '-3%' }}
+                                        className="font-['Noto_Sans_Bengali_UI'] font-bold text-2xl md:text-[26px] leading-[150%] text-[#2D2D34]"
                                     >
                                         {plan.price}
                                     </span>
                                     {plan.period && (
-                                        <span className="font-['Noto_Sans_Bengali_UI'] font-normal text-base leading-[150%] text-[#494A57] ml-2">
+                                        <span className="font-['Noto_Sans_Bengali_UI'] font-normal text-sm md:text-base leading-[150%] text-[#494A57] ml-1 md:ml-2">
                                             {plan.period}
                                         </span>
                                     )}
@@ -130,7 +130,7 @@ const PricingSection = () => {
                             </div>
 
                             {/* Features */}
-                            <div className="space-y-4 flex-grow">
+                            <div className="space-y-3 md:space-y-4 flex-grow">
                                 {plan.features.map((feature, index) => (
                                     <div key={index} className="flex items-center space-x-3">
                                         <div
@@ -146,7 +146,7 @@ const PricingSection = () => {
                                         </div>
                                         <span
                                             className={`
-                                                font-['Noto_Sans_Bengali_UI'] font-normal text-base leading-[150%]
+                                                font-['Noto_Sans_Bengali_UI'] font-normal text-sm md:text-base leading-[150%]
                                                 ${feature.included ? 'text-[#494A57]' : 'text-gray-400'}
                                             `}
                                         >
@@ -159,18 +159,13 @@ const PricingSection = () => {
                             {/* Button */}
                             <button
                                 className={`
-                                    w-full h-12 rounded-xl font-['Noto_Sans_Bengali_UI'] font-semibold text-base leading-[150%] transition-colors
-                                    py-3 px-6 border
+                                    w-full h-10 md:h-12 rounded-xl font-['Noto_Sans_Bengali_UI'] font-semibold text-sm md:text-base leading-[150%] transition-colors
+                                    py-2 md:py-3 px-4 md:px-6 border mt-4 md:mt-6
                                     ${plan.buttonType === 'filled'
                                         ? 'bg-[#AB323C] text-white border-[#AB323C] hover:bg-[#8B2832]'
                                         : 'bg-white text-[#AB323C] border-[#AB323C] hover:bg-red-50'
                                     }
                                 `}
-                                style={{
-                                    letterSpacing: '-2%',
-                                    maxWidth: '349px',
-                                    margin: '0 auto'
-                                }}
                             >
                                 শুরু করুন
                             </button>
