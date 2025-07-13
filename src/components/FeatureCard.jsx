@@ -36,6 +36,7 @@ const FeatureCard = ({
                         icon={<RightArrow className="size-5" />}
                         iconPosition="right"
                         variant="outline"
+                        className='max-w-[148px]'
                     >
                         {buttonText}
                     </Button>
