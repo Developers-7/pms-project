@@ -88,7 +88,7 @@ const FeatureSection = ({ t }) => {
                     icon={<ArrowRightIcon className="w-4 h-4" />}
                     iconPosition="right"
                     variant="outline"
-                    className="rounded-full"
+                    className="rounded-xl"
                 >
                     ফ্রি ডেমো দেখুন
                 </CardButton>

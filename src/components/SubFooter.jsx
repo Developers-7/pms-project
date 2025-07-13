@@ -23,7 +23,7 @@ const SubFooter = async () => {
     ];
 
     return (
-        <SectionCardLayout className="container px-4 sm:px-6 my-8 md:my-12">
+        <SectionCardLayout className="container px-4 sm:px-6 my-1 lg:my-8 md:my-12">
             <div className="bg-primary rounded-2xl sm:rounded-3xl px-4 sm:px-6 py-6 sm:py-8">
                 <div className="max-w-6xl mx-auto">
                     <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">

@@ -10,6 +10,7 @@ import SectionCardContainer from "@/components/SectionCard/SectionCardContainer"
 import SectionCardDescription from "@/components/SectionCard/SectionCardDescription";
 import Footer from "@/components/Footer";
 import SubFooter from "@/components/SubFooter";
+import FeatureCard from "@/components/FeatureCard";
 
 // UI components
 import Heading from "@/components/typography/Heading";
@@ -45,32 +46,14 @@ export default async function Page() {
                             {t("mobile_app")}
                         </SubHeading>
                     </div>
-                    <SectionCardContainer>
-                        <SectionCardDescription>
-                            <Heading className="mb-4 text-[#000000] text-2xl md:text-3xl lg:text-[32px] font-semibold leading-tight">
-                                {t("inventory_management")}
-                            </Heading>
-                            <Text className="mb-8 text-[#494A57] text-base leading-relaxed">
-                                {t("sub_heading")}
-                            </Text>
-                            <Button
-                                icon={<RightArrow className="size-5" />}
-                                iconPosition="right"
-                                variant="outline"
-                            >
-                                {t("start")}
-                            </Button>
-                        </SectionCardDescription>
-
-                        <div className="relative h-[300px] md:h-[400px] lg:h-[475px] w-full overflow-hidden">
-                            <Image
-                                src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
-                                alt="Bird"
-                                fill
-                                className="object-cover h-full w-full rounded-xl"
-                            />
-                        </div>
-                    </SectionCardContainer>
+                    <FeatureCard
+                        title={t("inventory_management")}
+                        description={t("sub_heading")}
+                        buttonText={t("start")}
+                        imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
+                        imageAlt="Inventory Management"
+                        imagePosition="right"
+                    />
                 </SectionCardLayout>
             </section>
 
@@ -79,69 +62,34 @@ export default async function Page() {
             {/* Feature Section with Right-aligned Image */}
             <section className="py-12 md:py-16 bg-secondary-bg">
                 <SectionCardLayout className="container">
-                    <SectionCardContainer space="rightSpace">
-                        <div className="relative h-[300px] md:h-[400px] lg:h-[475px] w-full overflow-hidden">
-                            <Image
-                                src={CardImageThree}
-                                alt="Feature Image"
-                                fill
-                                className="object-cover h-full w-full rounded-xl"
-                            />
-                        </div>
-                        <SectionCardDescription>
-                            <Heading className="mb-4 text-[#000000] text-2xl md:text-3xl lg:text-[32px] font-semibold leading-tight">
-                                {t("inventory_management")}
-                            </Heading>
-                            <Text className="mb-8 text-[#494A57] text-base leading-relaxed">
-                                {t("sub_heading")}
-                            </Text>
-                            <Button
-                                icon={<RightArrow className="size-5" />}
-                                iconPosition="right"
-                                variant="outline"
-                            >
-                                {t("start")}
-                            </Button>
-                        </SectionCardDescription>
-                    </SectionCardContainer>
+                    <FeatureCard
+                        title={t("inventory_management")}
+                        description={t("sub_heading")}
+                        buttonText={t("start")}
+                        imageUrl={CardImageThree.src}
+                        imageAlt="Feature Image"
+                        imagePosition="left"
+                    />
                 </SectionCardLayout>
             </section>
 
             {/* Feature Section with Left-aligned Image */}
             <section className="py-12 md:py-16">
                 <SectionCardLayout className="container">
-                    <SectionCardContainer>
-                        <SectionCardDescription>
-                            <Heading className="mb-4 text-[#000000] text-2xl md:text-3xl lg:text-[32px] font-semibold leading-tight">
-                                {t("inventory_management")}
-                            </Heading>
-                            <Text className="mb-8 text-[#494A57] text-base leading-relaxed">
-                                {t("sub_heading")}
-                            </Text>
-                            <Button
-                                icon={<RightArrow className="size-5" />}
-                                iconPosition="right"
-                                variant="outline"
-                            >
-                                {t("start")}
-                            </Button>
-                        </SectionCardDescription>
-
-                        <div className="relative h-[300px] md:h-[400px] lg:h-[475px] w-full overflow-hidden">
-                            <Image
-                                src="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
-                                alt="Feature Image"
-                                fill
-                                className="object-cover h-full w-full rounded-xl"
-                            />
-                        </div>
-                    </SectionCardContainer>
+                    <FeatureCard
+                        title={t("inventory_management")}
+                        description={t("sub_heading")}
+                        buttonText={t("start")}
+                        imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
+                        imageAlt="Feature Image"
+                        imagePosition="right"
+                    />
                 </SectionCardLayout>
             </section>
 
             {/*Card Section*/}
             <SectionCardLayout className="container">
-                <div className="flex justify-between">
+                <div className="flex flex-col lg:flex-row justify-between">
                     <div>
                         <Heading className="mb-6 text-black text-[48px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
                             {t("how_to_help")}
@@ -449,11 +397,24 @@ export default async function Page() {
                             </div>
                         </CardComponent>
                     </div>
-                </SectionCardLayout>
-            </section>
 
+                    {/* Centered Button */}
+                    <div className="flex justify-center mt-10">
+                        <CardButton
+                            as="Button"
+                            href="/get-started"
+                            icon={<ArrowRightIcon className="w-4 h-4" />}
+                            iconPosition="right"
+                            variant="primary"
+                            className="shadow-lg"
+                        >
+                            <span>{t("start")}</span>
+                        </CardButton>
+                    </div>
+                </SectionCardLayout>
+                <SubFooter />
+            </section>
             {/* Footer Sections */}
-            <SubFooter />
             <Footer />
         </main>
     );
