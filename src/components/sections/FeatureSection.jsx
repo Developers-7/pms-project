@@ -69,8 +69,8 @@ const FeatureSection = ({ t }) => {
     ];
 
     return (
-        <SectionCardLayout className="container py-16">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className='pt-30'>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
                 {features.map((feature) => (
                     <FeatureCard
                         key={feature.id}
@@ -88,12 +88,12 @@ const FeatureSection = ({ t }) => {
                     icon={<ArrowRightIcon className="w-4 h-4" />}
                     iconPosition="right"
                     variant="outline"
-                    className="rounded-xl"
+                    className="rounded-xl font-semibold"
                 >
                     ফ্রি ডেমো দেখুন
                 </CardButton>
             </div>
-        </SectionCardLayout>
+        </div>
     );
 };
 

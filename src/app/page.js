@@ -2,12 +2,9 @@ import { getT } from "@/i18n/server";
 import Image from "next/image";
 import { ArrowRightIcon } from "lucide-react";
 import { ArrowUpRightIcon } from "@heroicons/react/24/solid";
-import { RightArrow } from "next/dist/client/components/react-dev-overlay/ui/icons/right-arrow";
 
 // Layout components
 import SectionCardLayout from "@/components/SectionCard/SectionCardLayout";
-import SectionCardContainer from "@/components/SectionCard/SectionCardContainer";
-import SectionCardDescription from "@/components/SectionCard/SectionCardDescription";
 import Footer from "@/components/Footer";
 import SubFooter from "@/components/SubFooter";
 import FeatureCard from "@/components/FeatureCard";
@@ -16,7 +13,6 @@ import FeatureCard from "@/components/FeatureCard";
 import Heading from "@/components/typography/Heading";
 import SubHeading from "@/components/typography/SubHeading";
 import Text from "@/components/typography/Text";
-import Button from "@/components/ui/Button";
 import CardButton from "@/components/ui/CardButton";
 import CardComponent from "@/components/card/CardComponent";
 
@@ -29,7 +25,10 @@ import FeatureSection from "@/components/sections/FeatureSection";
 import CardImageOne from "@/assets/images/card_img1.png";
 import CardImageTwo from "@/assets/images/card_img2.png";
 import CardImageThree from "@/assets/images/card_img3.png";
-import VideoPlayer from "@/components/VideoPlayer";
+import HeroSection from "@/components/sections/HeroSection";
+import CustomHeader from "@/components/card/CustomHeaderComponent";
+import FeatureInfoCard from "@/components/card/FeatureInfoCard";
+import BlogCard from "@/components/card/BlogCard";
 
 export default async function Page() {
     const t = await getT();
@@ -37,117 +36,57 @@ export default async function Page() {
     return (
         <main className="min-h-screen overflow-hidden">
             {/* Hero Section */}
-            {/* Hero Section */}
-            <main className="px-4 md:px-6 pt-10 lg:pt-[150px] relative">
-                <Image
-                    src="/assets/Hero Section.svg"
-                    alt="bg-gradient"
-                    width={1000}
-                    height={1000}
-                    className="hidden lg:block w-[1440px] h-[1293px] object-cover absolute top-0 left-0 "
+            <HeroSection />
+            <section className="pt-30 pb-15 mt-15">
+                <CustomHeader
+                    heading={"need_to_manage_pharmacy"}
+                    subHeading={"mobile_app"}
                 />
-                <div className="container mx-auto relative z-20">
-                    {/* Hero Section with Text */}
-                    <div className="text-center mb-8">
-                        <h1 className="max-w-[1030px] text-black text-4xl md:text-5xl lg:text-[72px] mb-4 leading-[110%] md:leading-[100%] font-medium text-center font-['Noto_Sans_Bengali_UI'] mx-auto">
-                            {t("manage_pharmacy")}
-                        </h1>
-
-                        <p className="text-[#494A57] text-lg md:text-[20px] leading-[140%] md:leading-[100%] font-normal text-center font-['Noto_Sans_Bengali_UI'] mx-auto mb-8 max-w-[512px]">
-                            {t("all_in_one_app")}
-                        </p>
-
-                        {/* Action Buttons */}
-                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                            <Button
-                                variant="primary"
-                                size="md"
-                                icon={<ArrowRightIcon className="w-4 h-4" />}
-                                iconPosition="right"
-                                className="px-6 py-3 text-base font-semibold leading-[150%] tracking-[-0.02em] text-center rounded-xl bg-[#AB323C] text-white hover:bg-[#9A2D36] transition-colors gap-2.5"
-                            >
-                                {t("start_free_trail")}
-                            </Button>
-                            <Button
-                                variant="ghost"
-                                size="md"
-                                className="px-6 py-3 text-base font-semibold leading-[150%] tracking-[-0.02em] text-center rounded-xl bg-[#F8F8F8] text-[#494A57] hover:bg-gray-200 transition-colors gap-2.5 font-['Inter']"
-                            >
-                                {t("watch_demo")}
-                            </Button>
-                        </div>
-                    </div>
-
-                    {/* Video Demo Section */}
-                    <div className="flex items-center justify-center relative">
-                        <VideoPlayer />
-                    </div>
-                </div>
-            </main>
-            <section className="mb-16 md:mb-24">
-                <SectionCardLayout className="container">
-                    <div className="mb-8 md:mb-12">
-                        <Heading className="text-center mb-6 text-[#000000] text-3xl md:text-4xl lg:text-[48px] font-semibold leading-tight">
-                            {t("need_to_manage_pharmacy")}
-                        </Heading>
-                        <SubHeading className="text-center text-[#494A57] text-lg md:text-xl lg:text-[20px] font-medium leading-relaxed max-w-2xl mx-auto">
-                            {t("mobile_app")}
-                        </SubHeading>
-                    </div>
-                    <FeatureCard
-                        title={t("inventory_management")}
-                        description={t("sub_heading")}
-                        buttonText={t("start")}
-                        imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
-                        imageAlt="Inventory Management"
-                        imagePosition="right"
-                    />
-                </SectionCardLayout>
             </section>
 
             {/* More sections will follow */}
+            <SectionCardLayout className="container">
+                <FeatureCard
+                    title={t("inventory_management")}
+                    description={t("sub_heading")}
+                    buttonText={t("start")}
+                    imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
+                    imageAlt="Inventory Management"
+                    imagePosition="right"
+                />
+            </SectionCardLayout>
 
             {/* Feature Section with Right-aligned Image */}
-            <section className="py-12 md:py-16 bg-secondary-bg">
-                <SectionCardLayout className="container">
-                    <FeatureCard
-                        title="বিক্রয় ও বিলিং"
-                        description="আপনার বিক্রয় প্রক্রিয়া এখন হবে আরও দ্রুত ও সুবিধাজনক! কাস্টমারের জন্য সহজ বিলিং সিস্টেম, এবং সেলস রিপোর্টে সোজাসুজি ব্যবসার সঠিক অবস্থান জানুন।"
-                        buttonText={t("start")}
-                        imageUrl={CardImageThree.src}
-                        imageAlt="Feature Image"
-                        imagePosition="left"
-                    />
-                </SectionCardLayout>
-            </section>
+            <SectionCardLayout className="container">
+                <FeatureCard
+                    title="বিক্রয় ও বিলিং"
+                    description="আপনার বিক্রয় প্রক্রিয়া এখন হবে আরও দ্রুত ও সুবিধাজনক! কাস্টমারের জন্য সহজ বিলিং সিস্টেম, এবং সেলস রিপোর্টে সোজাসুজি ব্যবসার সঠিক অবস্থান জানুন।"
+                    buttonText={t("start")}
+                    imageUrl={CardImageThree.src}
+                    imageAlt="Feature Image"
+                    imagePosition="left"
+                />
+            </SectionCardLayout>
 
             {/* Feature Section with Left-aligned Image */}
-            <section className="py-12 md:py-16">
-                <SectionCardLayout className="container">
-                    <FeatureCard
-                        title="অ্যাকাউন্টিং এবং রিপোর্ট"
-                        description="দ্বিগুণ লাভ পেতে ব্যবসার আর্থিক হিসাব রাখতে হবে সঠিকভাবে। আমাদের সিস্টেম আপনাকে দেবে স্বয়ংক্রিয় হিসাব ও ডিটেইল রিপোর্ট, যা আপনার ব্যবসাকে এক নতুন উচ্চতায় নিয়ে যাবে।"
-                        buttonText={t("start")}
-                        imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
-                        imageAlt="Feature Image"
-                        imagePosition="right"
-                    />
-                </SectionCardLayout>
-            </section>
-
-            {/*Card Section*/}
             <SectionCardLayout className="container">
-                <div className="flex flex-col lg:flex-row justify-between">
-                    <div>
-                        <Heading className="mb-6 text-black text-[48px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                            {t("how_to_help")}
-                        </Heading>
-                        <Text className="mb-8 text-[#494A57] text-[20px] font-normal leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                            {t("start_with_platform")}
-                        </Text>
-                    </div>
-
-                    <div>
+                <FeatureCard
+                    title="অ্যাকাউন্টিং এবং রিপোর্ট"
+                    description="দ্বিগুণ লাভ পেতে ব্যবসার আর্থিক হিসাব রাখতে হবে সঠিকভাবে। আমাদের সিস্টেম আপনাকে দেবে স্বয়ংক্রিয় হিসাব ও ডিটেইল রিপোর্ট, যা আপনার ব্যবসাকে এক নতুন উচ্চতায় নিয়ে যাবে।"
+                    buttonText={t("start")}
+                    imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
+                    imageAlt="Feature Image"
+                    imagePosition="right"
+                />
+            </SectionCardLayout>
+            <section className="bg-[#F9F0F1] px-25 flex flex-col items-center gap-15">
+                <SectionCardLayout className="container">
+                    <div className="flex flex-col items-start lg:flex-row lg:items-center justify-between w-full">
+                        <CustomHeader
+                            heading={"how_to_help"}
+                            subHeading={"start_with_platform"}
+                            className="text-start items-start mb-6 lg:mb-0"
+                        />
                         <CardButton
                             as="Link"
                             href="/get-started"
@@ -158,93 +97,48 @@ export default async function Page() {
                             <span>{t("start")}</span>
                         </CardButton>
                     </div>
-                </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {/* Card 1 */}
-                    <CardComponent className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                        <div className="relative h-[240px] w-full overflow-hidden mb-6">
-                            <Image
-                                src={CardImageOne}
-                                alt="Sign Up & Setup"
-                                fill
-                                className="object-cover rounded-xl"
-                            />
-                        </div>
-                        <div className="text-left">
-                            <SubHeading className="mb-4 text-black text-[24px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                                সাইন আপ করুন
-                            </SubHeading>
-                            <Text className="text-[#494A57] text-[16px] font-normal leading-[160%] font-['Noto_Sans_Bengali_UI']">
-                                আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
-                                সেট আপ করুন
-                            </Text>
-                        </div>
-                    </CardComponent>
+                    {/* Card Listing */}
+                    <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-25">
+                        {/* Card 1 */}
+                        <FeatureInfoCard
+                            image={CardImageOne}
+                            title="সাইন আপ করুন"
+                            description="আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল সেট আপ করুন"
+                        />
 
-                    {/* Card 2 */}
-                    <CardComponent className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                        <div className="relative h-[240px] w-full overflow-hidden mb-6">
-                            <Image
-                                src={CardImageTwo}
-                                alt="Inventory Management"
-                                fill
-                                className="object-cover rounded-xl"
-                            />
-                        </div>
-                        <div className="text-left">
-                            <SubHeading className="mb-4 text-black text-[24px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                                আপনার ইনভেন্টরি যুক্ত করুন
-                            </SubHeading>
-                            <Text className="text-[#494A57] text-[16px] font-normal leading-[160%] font-['Noto_Sans_Bengali_UI']">
-                                আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
-                                সেট আপ করুন
-                            </Text>
-                        </div>
-                    </CardComponent>
+                        <FeatureInfoCard
+                            image={CardImageTwo}
+                            title="আপনার ইনভেন্টরি যুক্ত করুন"
+                            description="আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল সেট আপ করুন"
+                        />
 
-                    {/* Card 3 */}
-                    <CardComponent className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                        <div className="relative h-[240px] w-full overflow-hidden mb-6">
-                            <Image
-                                src={CardImageThree}
-                                alt="Reports & Analytics"
-                                fill
-                                className="object-cover rounded-xl"
-                            />
-                        </div>
-                        <div className="text-left">
-                            <SubHeading className="mb-4 text-black text-[24px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                                যেখানেই থাকুন, সহজেই ম্যানেজ করুন আপনার শপ
-                            </SubHeading>
-                            <Text className="text-[#494A57] text-[16px] font-normal leading-[160%] font-['Noto_Sans_Bengali_UI']">
-                                আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
-                                সেট আপ করুন
-                            </Text>
-                        </div>
-                    </CardComponent>
-                </div>
-            </SectionCardLayout>
-            <SectionCardLayout>
-                <div className="flex flex-col items-center justify-center">
-                    <Heading className="mb-6 text-black text-[48px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                        {t("how_to_help")}
-                    </Heading>
-                    <Text className="mb-8 text-[#494A57] text-[20px] font-normal leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                        {t("start_with_platform")}
-                    </Text>
-                </div>
+                        <FeatureInfoCard
+                            image={CardImageTwo}
+                            title="যেখানেই থাকুন, সহজেই ম্যানেজ করুন আপনার শপ"
+                            description="আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
+                        সেট আপ করুন"
+                        />
+                    </div>
+                </SectionCardLayout>
+            </section>
+            {/*Card Section*/}
+            <SectionCardLayout className="container">
+                <CustomHeader
+                    heading={"কেন ফার্মেসি মালিকরা ঔষধ সেবা পছন্দ করেন"}
+                    subHeading={
+                        "আমাদের স্বজ্ঞাত প্ল্যাটফর্মের সাথে কয়েক মিনিটের মধ্যে শুরু করুন"
+                    }
+                />
                 <FeatureSection t={t} />
             </SectionCardLayout>
-            {/* Feature Section */}
-
             {/* Mobile App Section */}
-            <section className="py-12 md:py-16">
+            <div className="bg-secondary-bg w-full">
                 <SectionCardLayout className="container">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                         <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full overflow-hidden order-last lg:order-first">
                             <Image
-                                src="/assets/background_1.jpg"
+                                src="/assets/mobile_background.png"
                                 alt="Mobile App Mockup"
                                 fill
                                 className="object-cover rounded-xl"
@@ -288,19 +182,16 @@ export default async function Page() {
                         </div>
                     </div>
                 </SectionCardLayout>
-            </section>
+            </div>
             {/* Testimonials Section */}
             <div>
                 <SectionCardLayout className="container ">
-                    <div className="text-center mb-8">
-                        <Heading className="mb-4 text-[#2D2D34] text-2xl md:text-3xl lg:text-[48px] font-semibold leading-tight">
-                            ৫০০+ কাস্টমারের মন্তব্য
-                        </Heading>
-                        <Text className="text-[#494A57] text-base md:text-lg lg:text-[20px]">
-                            হাজার হাজার সন্তুষ্ট সম্পত্তি পরিচালকদের সাথে যোগ
-                            দিন
-                        </Text>
-                    </div>
+                    <CustomHeader
+                        heading={"৫০০+ কাস্টমারের মন্তব্য"}
+                        subHeading={
+                            "হাজার হাজার সন্তুষ্ট সম্পত্তি পরিচালকদের সাথে যোগ দিন"
+                        }
+                    />
                     <section className="py-12 md:py-16 bg-white">
                         <div className="container mx-auto px-4">
                             <TestimonialCarousel />
@@ -312,14 +203,14 @@ export default async function Page() {
             {/* Pricing Section */}
             <div className="bg-[#FAFAFA]">
                 <SectionCardLayout className="container ">
-                    <div className="text-center mb-8">
-                        <Heading className="mb-4 text-[#2D2D34] text-2xl md:text-3xl lg:text-[48px] font-semibold leading-tight">
-                            দেশের সবচেয়ে আধুনিক অ্যাপ, আপনার হাতের নাগালে
-                        </Heading>
-                        <Text className="text-[#494A57] text-base md:text-lg lg:text-[20px]">
-                            আপনার প্রয়োজন অনুসারে পরিকল্পনাটি বেছে নিন
-                        </Text>
-                    </div>
+                    <CustomHeader
+                        heading={
+                            "দেশের সবচেয়ে আধুনিক অ্যাপ, আপনার হাতের নাগালে"
+                        }
+                        subHeading={
+                            "আপনার প্রয়োজন অনুসারে পরিকল্পনাটি বেছে নিন"
+                        }
+                    />
                     <PricingSection />
                 </SectionCardLayout>
             </div>
@@ -352,110 +243,35 @@ export default async function Page() {
             </section>
 
             {/* Blog Section */}
-            <section className="py-12 md:py-16">
+            <section className="py-12 md:py-16 bg-secondary-bg w-full">
                 <SectionCardLayout className="container">
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10 gap-6">
-                        <div>
-                            <Heading className="mb-4 text-[#000000] text-2xl md:text-3xl lg:text-[48px] font-semibold leading-tight">
-                                {t("how_to_help")}
-                            </Heading>
-                            <Text className="text-[#494A57] text-base md:text-lg lg:text-[20px]">
-                                {t("start_with_platform")}
-                            </Text>
-                        </div>
-
-                        <div>
-                            <CardButton
-                                as="Link"
-                                href="/get-started"
-                                icon={<ArrowUpRightIcon className="w-4 h-4" />}
-                                iconPosition="right"
-                                variant="primary"
-                            >
-                                <span>{t("start")}</span>
-                            </CardButton>
-                        </div>
-                    </div>
+                    <CustomHeader
+                        heading={"ফার্মেসি বিজনেসের উন্নতি সম্পর্কিত গাইডলাইন"}
+                        subHeading={
+                            "হাজার হাজার সন্তুষ্ট সম্পত্তি পরিচালকদের সাথে যোগ দিন"
+                        }
+                    />
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {/* Blog Card 1 */}
-                        <CardComponent className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                            <div className="relative h-[240px] w-full overflow-hidden mb-6">
-                                <Image
-                                    src={CardImageOne}
-                                    alt="Sign Up & Setup"
-                                    fill
-                                    className="object-cover rounded-xl"
-                                />
-                            </div>
-                            <div className="text-left">
-                                <SubHeading className="mb-4 text-[#000000] text-xl lg:text-[24px] font-semibold">
-                                    {t("add_inventory")}
-                                </SubHeading>
-                                <Text className="text-[#494A57] text-base">
-                                    {t("sub_add_inventory")}
-                                </Text>
-                                <div className="mt-4 flex items-center gap-2 cursor-pointer group transition-colors duration-200 hover:text-[#AB323C]">
-                                    <span className="text-[#494A57] text-base group-hover:text-[#AB323C] transition-colors duration-200">
-                                        ব্লগ পড়ুন
-                                    </span>
-                                    <ArrowRightIcon className="w-4 h-4 text-[#494A57] group-hover:text-[#AB323C] transition-colors duration-200" />
-                                </div>
-                            </div>
-                        </CardComponent>
-
-                        {/* Blog Card 2 */}
-                        <CardComponent className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                            <div className="relative h-[240px] w-full overflow-hidden mb-6">
-                                <Image
-                                    src={CardImageTwo}
-                                    alt="Inventory Management"
-                                    fill
-                                    className="object-cover rounded-xl"
-                                />
-                            </div>
-                            <div className="text-left">
-                                <SubHeading className="mb-4 text-[#000000] text-xl lg:text-[24px] font-semibold">
-                                    {t("inventory_management")}
-                                </SubHeading>
-                                <Text className="text-[#494A57] text-base">
-                                    {t("sub_heading")}
-                                </Text>
-                                <div className="mt-4 flex items-center gap-2 cursor-pointer group transition-colors duration-200 hover:text-[#AB323C]">
-                                    <span className="text-[#494A57] text-base group-hover:text-[#AB323C] transition-colors duration-200">
-                                        ব্লগ পড়ুন
-                                    </span>
-                                    <ArrowRightIcon className="w-4 h-4 text-[#494A57] group-hover:text-[#AB323C] transition-colors duration-200" />
-                                </div>
-                            </div>
-                        </CardComponent>
-
-                        {/* Blog Card 3 */}
-                        <CardComponent className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow">
-                            <div className="relative h-[240px] w-full overflow-hidden mb-6">
-                                <Image
-                                    src={CardImageThree}
-                                    alt="Reports & Analytics"
-                                    fill
-                                    className="object-cover rounded-xl"
-                                />
-                            </div>
-                            <div className="text-left">
-                                <SubHeading className="mb-4 text-[#000000] text-xl lg:text-[24px] font-semibold">
-                                    যোগাযোগ থাকুন, সহজেই ন্যানেজ
-                                </SubHeading>
-                                <Text className="text-[#494A57] text-base">
-                                    আপনার আ্যাকাউন্ট তৈরি করুন এবং আপনার
-                                    ফোর্মাসিন সেট আপ করুন
-                                </Text>
-                                <div className="mt-4 flex items-center gap-2 cursor-pointer group transition-colors duration-200 hover:text-[#AB323C]">
-                                    <span className="text-[#494A57] text-base group-hover:text-[#AB323C] transition-colors duration-200">
-                                        ব্লগ পড়ুন
-                                    </span>
-                                    <ArrowRightIcon className="w-4 h-4 text-[#494A57] group-hover:text-[#AB323C] transition-colors duration-200" />
-                                </div>
-                            </div>
-                        </CardComponent>
+                        <BlogCard
+                            date="মার্চ ০৪, ২০২৫"
+                            title={t("add_inventory")}
+                            description={t("sub_add_inventory")}
+                            image={CardImageOne}
+                        />
+                        <BlogCard
+                            date="মার্চ ০৪, ২০২৫"
+                            title={t("add_inventory")}
+                            description={t("sub_add_inventory")}
+                            image={CardImageTwo}
+                        />
+                        <BlogCard
+                            date="মার্চ ০৪, ২০২৫"
+                            title={t("add_inventory")}
+                            description={t("sub_add_inventory")}
+                            image={CardImageThree}
+                        />
                     </div>
 
                     {/* Centered Button */}
