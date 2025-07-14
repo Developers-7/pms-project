@@ -29,17 +29,17 @@ export default function Navbar() {
   }, []);
 
   // Close dropdown when clicking outside
-  useEffect(() => {
-    if (!open) return;
+  // useEffect(() => {
+  //   if (!open) return;
 
-    const handleClickOutside = () => setOpen(false);
-    document.addEventListener('click', handleClickOutside);
+  //   const handleClickOutside = () => setOpen(false);
+  //   document.addEventListener('click', handleClickOutside);
 
-    return () => document.removeEventListener('click', handleClickOutside);
-  }, [open]);
+  //   return () => document.removeEventListener('click', handleClickOutside);
+  // }, [open]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 to-red-100">
+    <div className="">
       {/* Header */}
       <header className={cn(
         "w-full sticky top-0 z-50 transition-all duration-300",
@@ -115,39 +115,42 @@ export default function Navbar() {
 
         {/* Mobile Navigation Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white border-t shadow-lg animate-slideDown">
-            <div className="px-4 py-3 space-y-1">
-              <Link href="/" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('home')}</Link>
+          <div className={`md:hidden relative transform `}>
+            <div className='w-full h-screen bg-black opacity-70 absolute top-0 left-0 z-10' onClick={() => setMobileMenuOpen(false)} />
+            <div className="md:hidden absolute top-full left-0 z-20 w-full bg-white border-t shadow-lg animate-slideDown">
+              <div className="px-4 py-3 space-y-1">
+                <Link href="/" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('home')}</Link>
 
-              <div>
-                <button
-                  onClick={() => setOpen(!open)}
-                  className="flex items-center justify-between w-full py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors"
-                >
-                  <span>{t('service')}</span>
-                  <ChevronDownIcon className={cn("w-4 h-4 transition-transform", open ? "rotate-180" : "")} />
-                </button>
-                {open && (
-                  <div className="pl-4 border-l-2 border-gray-200 ml-2 mt-1">
-                    <Link href="/services/1" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('service_one')}</Link>
-                    <Link href="/services/2" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('service_two')}</Link>
-                  </div>
-                )}
-              </div>
+                <div>
+                  <button
+                    onClick={() => setOpen(!open)}
+                    className="flex items-center justify-between w-full py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors"
+                  >
+                    <span>{t('service')}</span>
+                    <ChevronDownIcon className={cn("w-4 h-4 transition-transform", open ? "rotate-180" : "")} />
+                  </button>
+                  {open && (
+                    <div className="pl-4 border-l-2 border-gray-200 ml-2 mt-1">
+                      <Link href="/services/1" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('service_one')}</Link>
+                      <Link href="/services/2" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('service_two')}</Link>
+                    </div>
+                  )}
+                </div>
 
-              <Link href="/about" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('about_us')}</Link>
-              <Link href="/contact" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('contact')}</Link>
+                <Link href="/about" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('about_us')}</Link>
+                <Link href="/contact" className="block py-2 text-[#2D2D34] hover:text-[#AB323C] transition-colors">{t('contact')}</Link>
 
-              <div className="pt-2">
-                <Button
-                  as='Link'
-                  href="/get-started"
-                  icon={<ArrowUpRightIcon className="w-4 h-4" />}
-                  iconPosition='right'
-                  className='w-full py-2.5 text-base font-semibold text-center rounded-lg bg-[#AB323C] text-white hover:bg-[#9A2D36] transition-colors gap-2'
-                >
-                  <span>{t('start')}</span>
-                </Button>
+                <div className="pt-2">
+                  <Button
+                    as='Link'
+                    href="/get-started"
+                    icon={<ArrowUpRightIcon className="w-4 h-4" />}
+                    iconPosition='right'
+                    className='w-full py-2.5 text-base font-semibold text-center rounded-lg bg-[#AB323C] text-white hover:bg-[#9A2D36] transition-colors gap-2'
+                  >
+                    <span>{t('start')}</span>
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
@@ -155,46 +158,7 @@ export default function Navbar() {
       </header>
 
       {/* Main Content */}
-      {/* Hero Section */}
-      <main className="px-4 md:px-6 py-16 pt-[120px] md:pt-[150px]">
-        <div className="container mx-auto">
-          {/* Hero Section with Text */}
-          <div className="text-center mb-8">
-            <h1 className="text-black text-4xl md:text-5xl lg:text-[72px] mb-4 leading-[110%] md:leading-[100%] font-medium text-center font-['Noto_Sans_Bengali_UI'] mx-auto">
-              {t('manage_pharmacy')}
-            </h1>
 
-            <p className="text-[#494A57] text-lg md:text-[20px] leading-[140%] md:leading-[100%] font-normal text-center font-['Noto_Sans_Bengali_UI'] mx-auto mb-8 max-w-[512px]">
-              {t('all_in_one_app')}
-            </p>
-
-            {/* Action Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-              <Button
-                variant="primary"
-                size="md"
-                icon={<ArrowRightIcon className="w-4 h-4" />}
-                iconPosition="right"
-                className="px-6 py-3 text-base font-semibold leading-[150%] tracking-[-0.02em] text-center rounded-xl bg-[#AB323C] text-white hover:bg-[#9A2D36] transition-colors gap-2.5"
-              >
-                {t('start_free_trail')}
-              </Button>
-              <Button
-                variant="ghost"
-                size="md"
-                className="px-6 py-3 text-base font-semibold leading-[150%] tracking-[-0.02em] text-center rounded-xl bg-[#F8F8F8] text-[#494A57] hover:bg-gray-200 transition-colors gap-2.5 font-['Inter']"
-              >
-                {t('watch_demo')}
-              </Button>
-            </div>
-          </div>
-
-          {/* Video Demo Section */}
-          <div className="flex items-center justify-center relative">
-            <VideoPlayer />
-          </div>
-        </div>
-      </main>
     </div>
   );
 }

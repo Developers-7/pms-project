@@ -29,6 +29,7 @@ import FeatureSection from "@/components/sections/FeatureSection";
 import CardImageOne from "@/assets/images/card_img1.png";
 import CardImageTwo from "@/assets/images/card_img2.png";
 import CardImageThree from "@/assets/images/card_img3.png";
+import VideoPlayer from "@/components/VideoPlayer";
 
 export default async function Page() {
     const t = await getT();
@@ -36,6 +37,53 @@ export default async function Page() {
     return (
         <main className="min-h-screen overflow-hidden">
             {/* Hero Section */}
+            {/* Hero Section */}
+            <main className="px-4 md:px-6 pt-10 lg:pt-[150px] relative">
+                <Image
+                    src="/assets/Hero Section.svg"
+                    alt="bg-gradient"
+                    width={1000}
+                    height={1000}
+                    className="hidden lg:block w-[1440px] h-[1293px] object-cover absolute top-0 left-0 "
+                />
+                <div className="container mx-auto relative z-20">
+                    {/* Hero Section with Text */}
+                    <div className="text-center mb-8">
+                        <h1 className="max-w-[1030px] text-black text-4xl md:text-5xl lg:text-[72px] mb-4 leading-[110%] md:leading-[100%] font-medium text-center font-['Noto_Sans_Bengali_UI'] mx-auto">
+                            {t("manage_pharmacy")}
+                        </h1>
+
+                        <p className="text-[#494A57] text-lg md:text-[20px] leading-[140%] md:leading-[100%] font-normal text-center font-['Noto_Sans_Bengali_UI'] mx-auto mb-8 max-w-[512px]">
+                            {t("all_in_one_app")}
+                        </p>
+
+                        {/* Action Buttons */}
+                        <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                            <Button
+                                variant="primary"
+                                size="md"
+                                icon={<ArrowRightIcon className="w-4 h-4" />}
+                                iconPosition="right"
+                                className="px-6 py-3 text-base font-semibold leading-[150%] tracking-[-0.02em] text-center rounded-xl bg-[#AB323C] text-white hover:bg-[#9A2D36] transition-colors gap-2.5"
+                            >
+                                {t("start_free_trail")}
+                            </Button>
+                            <Button
+                                variant="ghost"
+                                size="md"
+                                className="px-6 py-3 text-base font-semibold leading-[150%] tracking-[-0.02em] text-center rounded-xl bg-[#F8F8F8] text-[#494A57] hover:bg-gray-200 transition-colors gap-2.5 font-['Inter']"
+                            >
+                                {t("watch_demo")}
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Video Demo Section */}
+                    <div className="flex items-center justify-center relative">
+                        <VideoPlayer />
+                    </div>
+                </div>
+            </main>
             <section className="mb-16 md:mb-24">
                 <SectionCardLayout className="container">
                     <div className="mb-8 md:mb-12">
@@ -63,8 +111,8 @@ export default async function Page() {
             <section className="py-12 md:py-16 bg-secondary-bg">
                 <SectionCardLayout className="container">
                     <FeatureCard
-                        title={t("inventory_management")}
-                        description={t("sub_heading")}
+                        title="বিক্রয় ও বিলিং"
+                        description="আপনার বিক্রয় প্রক্রিয়া এখন হবে আরও দ্রুত ও সুবিধাজনক! কাস্টমারের জন্য সহজ বিলিং সিস্টেম, এবং সেলস রিপোর্টে সোজাসুজি ব্যবসার সঠিক অবস্থান জানুন।"
                         buttonText={t("start")}
                         imageUrl={CardImageThree.src}
                         imageAlt="Feature Image"
@@ -77,8 +125,8 @@ export default async function Page() {
             <section className="py-12 md:py-16">
                 <SectionCardLayout className="container">
                     <FeatureCard
-                        title={t("inventory_management")}
-                        description={t("sub_heading")}
+                        title="অ্যাকাউন্টিং এবং রিপোর্ট"
+                        description="দ্বিগুণ লাভ পেতে ব্যবসার আর্থিক হিসাব রাখতে হবে সঠিকভাবে। আমাদের সিস্টেম আপনাকে দেবে স্বয়ংক্রিয় হিসাব ও ডিটেইল রিপোর্ট, যা আপনার ব্যবসাকে এক নতুন উচ্চতায় নিয়ে যাবে।"
                         buttonText={t("start")}
                         imageUrl="https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg"
                         imageAlt="Feature Image"
@@ -103,7 +151,7 @@ export default async function Page() {
                         <CardButton
                             as="Link"
                             href="/get-started"
-                            icon={<ArrowUpRightIcon className="w-4 h-4" />}
+                            icon={<ArrowRightIcon className="w-4 h-4" />}
                             iconPosition="right"
                             variant="primary"
                         >
@@ -125,10 +173,11 @@ export default async function Page() {
                         </div>
                         <div className="text-left">
                             <SubHeading className="mb-4 text-black text-[24px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                                {t("add_inventory")}
+                                সাইন আপ করুন
                             </SubHeading>
                             <Text className="text-[#494A57] text-[16px] font-normal leading-[160%] font-['Noto_Sans_Bengali_UI']">
-                                {t("sub_add_inventory")}
+                                আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
+                                সেট আপ করুন
                             </Text>
                         </div>
                     </CardComponent>
@@ -145,10 +194,11 @@ export default async function Page() {
                         </div>
                         <div className="text-left">
                             <SubHeading className="mb-4 text-black text-[24px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                                {t("inventory_management")}
+                                আপনার ইনভেন্টরি যুক্ত করুন
                             </SubHeading>
                             <Text className="text-[#494A57] text-[16px] font-normal leading-[160%] font-['Noto_Sans_Bengali_UI']">
-                                {t("sub_heading")}
+                                আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
+                                সেট আপ করুন
                             </Text>
                         </div>
                     </CardComponent>
@@ -165,18 +215,28 @@ export default async function Page() {
                         </div>
                         <div className="text-left">
                             <SubHeading className="mb-4 text-black text-[24px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
-                                যোগাযোগ থাকুন, সহজেই ন্যানেজ
+                                যেখানেই থাকুন, সহজেই ম্যানেজ করুন আপনার শপ
                             </SubHeading>
                             <Text className="text-[#494A57] text-[16px] font-normal leading-[160%] font-['Noto_Sans_Bengali_UI']">
-                                আপনার আ্যাকাউন্ট তৈরি করুন এবং আপনার ফোর্মাসিন
+                                আপনার অ্যাকাউন্ট তৈরি করুন এবং আপনার প্রোফাইল
                                 সেট আপ করুন
                             </Text>
                         </div>
                     </CardComponent>
                 </div>
             </SectionCardLayout>
+            <SectionCardLayout>
+                <div className="flex flex-col items-center justify-center">
+                    <Heading className="mb-6 text-black text-[48px] font-semibold leading-[100%] font-['Noto_Sans_Bengali_UI']">
+                        {t("how_to_help")}
+                    </Heading>
+                    <Text className="mb-8 text-[#494A57] text-[20px] font-normal leading-[100%] font-['Noto_Sans_Bengali_UI']">
+                        {t("start_with_platform")}
+                    </Text>
+                </div>
+                <FeatureSection t={t} />
+            </SectionCardLayout>
             {/* Feature Section */}
-            <FeatureSection t={t} />
 
             {/* Mobile App Section */}
             <section className="py-12 md:py-16">
