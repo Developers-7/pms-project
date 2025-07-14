@@ -72,13 +72,13 @@ export default function Footer() {
                 </div>
 
                 {/* Footer Logo - Left aligned on mobile, centered on larger screens */}
-                <div className="flex flex-col md:flex-row items-start md:items-center md:justify-center gap-3 mt-4">
-                    <Image src={FooterLogo} alt="Footer Logo" width={60} height={60} />
+                <div className="flex flex-row items-start md:items-center md:justify-center gap-4 mt-4">
+                    <Image src={FooterLogo} alt="Footer Logo" width={70} height={70} />
                     <div className="flex flex-col gap-1 items-start">
-                        <h2 className="font-['Roboto'] text-4xl md:text-5xl font-bold leading-[100%] text-[#AB323C] text-left">
+                        <h2 className="text-4xl md:text-5xl font-bold leading-[100%] text-[#AB323C] text-left">
                             Pharmacy
                         </h2>
-                        <h3 className="font-['Roboto'] font-normal text-xl md:text-2xl leading-[100%] text-white text-left">
+                        <h3 className="font-normal text-xl md:text-2xl leading-[100%] text-white text-left">
                             Management System
                         </h3>
                     </div>

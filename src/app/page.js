@@ -79,9 +79,9 @@ export default async function Page() {
                     imagePosition="right"
                 />
             </SectionCardLayout>
-            <section className="bg-[#F9F0F1] px-25 flex flex-col items-center gap-15">
+            <section className="bg-[#F9F0F1] md:px-25 flex flex-col items-center gap-15">
                 <SectionCardLayout className="container">
-                    <div className="flex flex-col items-start lg:flex-row lg:items-center justify-between w-full">
+                    <div className="flex flex-col items-center lg:flex-row lg:items-center justify-between w-full">
                         <CustomHeader
                             heading={"how_to_help"}
                             subHeading={"start_with_platform"}
@@ -135,8 +135,9 @@ export default async function Page() {
             {/* Mobile App Section */}
             <div className="bg-secondary-bg w-full">
                 <SectionCardLayout className="container">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                        <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full overflow-hidden order-last lg:order-first">
+                    <div className="flex flex-col md:flex-row gap-12">
+                        {/* Image - Always on Left */}
+                        <div className="relative h-[300px] md:h-[400px] lg:h-[500px] w-full md:w-1/2 overflow-hidden">
                             <Image
                                 src="/assets/mobile_background.png"
                                 alt="Mobile App Mockup"
@@ -145,7 +146,8 @@ export default async function Page() {
                             />
                         </div>
 
-                        <div className="flex flex-col gap-4">
+                        {/* Text Content - Always on Right with Top Alignment */}
+                        <div className="flex flex-col gap-4 items-start justify-start text-start w-full md:w-1/2">
                             <Heading className="text-[#000000] text-3xl md:text-4xl lg:text-[48px] font-semibold leading-tight">
                                 আপনার ফার্মেসি এখন হাতের মুঠোয়
                             </Heading>
@@ -163,7 +165,8 @@ export default async function Page() {
                                 বর্তমান অবস্থা জানতে পারবেন।
                             </Text>
 
-                            <div className="flex flex-col sm:flex-row gap-4">
+                            {/* App Store Badges - Below Text */}
+                            <div className="flex md:flex-col flex-row gap-4 mt-auto">
                                 <a href="#" className="inline-block">
                                     <img
                                         src="/icons/play_store_icon.png"
@@ -243,7 +246,7 @@ export default async function Page() {
             </section>
 
             {/* Blog Section */}
-            <section className="py-12 md:py-16 bg-secondary-bg w-full">
+            <section className="bg-secondary-bg w-full">
                 <SectionCardLayout className="container">
                     <CustomHeader
                         heading={"ফার্মেসি বিজনেসের উন্নতি সম্পর্কিত গাইডলাইন"}
@@ -275,7 +278,7 @@ export default async function Page() {
                     </div>
 
                     {/* Centered Button */}
-                    <div className="flex justify-center mt-10">
+                    <div className="flex justify-center mt-10  md:w-[67px]">
                         <CardButton
                             as="Button"
                             href="/get-started"
@@ -288,8 +291,10 @@ export default async function Page() {
                         </CardButton>
                     </div>
                 </SectionCardLayout>
-                <SubFooter />
             </section>
+            <SectionCardLayout className="container">
+                <SubFooter />
+            </SectionCardLayout>
             {/* Footer Sections */}
             <Footer />
         </main>
