@@ -10,12 +10,12 @@ import React from 'react';
 import { cn } from "@/lib/utils";
 
 const CardComponent = ({
-                           className,
-                           children
-                       }) => {
+    className,
+    children
+}) => {
     return (
         <div
-            className={cn("bg-gray rounded-xl shadow-sm p-4", className)}
+            className={cn("bg-[#FFFFFF] rounded-xl p-4", className)}
         >
             {children}
         </div>

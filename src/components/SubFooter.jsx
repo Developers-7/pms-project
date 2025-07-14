@@ -1,19 +1,10 @@
-/**
- * Created by WebStorm.
- * User: Zishan
- * Date: 10 Jul 2025
- * Time: 4:15 PM
- * Email: zishan.softdev@gmail.com
- */
-
-
 import React from 'react';
 import { getT } from '@/i18n/server';
 import SectionCardLayout from "@/components/SectionCard/SectionCardLayout";
-import SectionCardContainer from "@/components/SectionCard/SectionCardContainer";
 import AvatarGroup from "@/components/typography/AvatarGroup";
 import SubHeading from "@/components/typography/SubHeading";
-import Button from "@/components/ui/Button";
+import CardButton from './ui/CardButton';
+import { ArrowRightIcon } from 'lucide-react';
 
 const SubFooter = async () => {
     const t = await getT();
@@ -32,27 +23,35 @@ const SubFooter = async () => {
     ];
 
     return (
-        <SectionCardLayout className="container">
-            <SectionCardContainer className="bg-primary rounded-3xl px-6 py-8">
-                <div className="max-w-6xl mx-auto space-y-6">
-                    {/* Avatars */}
-                    <AvatarGroup avatars={avatars} maxVisible={5} />
-
-                    <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                        <SubHeading className="text-white text-center sm:text-left">
+        <div className="bg-primary rounded-2xl sm:rounded-3xl px-4 sm:px-6 py-6 sm:py-8">
+            <div className="max-w-6xl mx-auto">
+                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    {/* Left side - Avatars and SubHeading */}
+                    <div className="flex flex-col space-y-4 w-full sm:w-auto">
+                        <div className="overflow-x-auto w-full pb-1">
+                            <AvatarGroup avatars={avatars} maxVisible={5} />
+                        </div>
+                        <SubHeading className="text-white text-left text-base sm:text-lg max-w-[90%] sm:max-w-none">
                             {t('subscription_pharmacy')}
                         </SubHeading>
+                    </div>
 
-                        <Button
-                            variant="ghost"
-                            className="bg-white text-primary hover:bg-gray-100"
+                    {/* Right side - Button */}
+                    <div className="w-full sm:w-auto mt-2 sm:mt-0">
+                        <CardButton
+                            as="Button"
+                            href="/get-started"
+                            icon={<ArrowRightIcon className="w-4 h-4" />}
+                            iconPosition="right"
+                            variant="outline"
+                            className="w-full sm:w-auto whitespace-nowrap py-2.5 px-4 sm:px-6 text-sm sm:text-base bg-white text-[#AB323C] hover:bg-gray-100 border-white"
                         >
-                            {t('free_trail')}
-                        </Button>
+                            <span>{t("free_trail")}</span>
+                        </CardButton>
                     </div>
                 </div>
-            </SectionCardContainer>
-        </SectionCardLayout>
+            </div>
+        </div>
     );
 };
 

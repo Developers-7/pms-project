@@ -1,12 +1,12 @@
 
 import React from 'react';
-import {cn} from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const SectionCardDescription = ({
-                                    className,
-                                    children,
-                                    ...rest
-                                }) => {
+    className,
+    children,
+    ...rest
+}) => {
     return (
         <div
             className={cn("w-full h-full flex items-center", className)}
